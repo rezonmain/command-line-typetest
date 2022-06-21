@@ -1,9 +1,14 @@
-import Text from './components/Text';
 import './style.css';
-import { commands } from './data';
+import Stats from './components/layout/Stats';
+import Terminal from './components/layout/Terminal';
 
 function App() {
-	return <Text commands={commands} />;
+	return (
+		<main>
+			<Stats />
+			<Terminal />
+		</main>
+	);
 }
 
 export default App;
