@@ -1,0 +1,52 @@
+:root {
+  --bg: #2E2E30;
+  --header-bg: #404040;
+  --tb-red: #FD5E58;
+  --tb-yellow: #FDBB2E;
+  --tb-green: #61BA46;
+  --btn-bg: #5D5D5D;
+  --btn-txt: #D7D7D7;
+  --divider: #3E3E40;
+  --input: #2BBC65;
+  --help-svg: #A7A0A0;
+  --br: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+}
+
+/* Tablet */
+@media only screen and (min-width: 820px) {
+  body {
+    padding: 0 0.5rem;
+    background-image: url('../public/img/typingbg.jpg');
+  }
+
+  main {
+    display: grid;
+    column-gap: 0.5rem;
+    grid-template-columns: 20.625rem 1fr;
+    grid-template-rows: 1.5vh 97vh 1.5vh;
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 1300px) {
+  body {
+    padding: 0 2rem;
+  }
+
+  main {
+    column-gap: 2rem;
+    grid-template-rows: 5vh 90vh 5vh;
+  }
+
+}

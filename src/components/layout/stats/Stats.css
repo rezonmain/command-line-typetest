@@ -1,28 +1,3 @@
-.ascii-logo {
-  font-family: 'Roboto Mono', monospace;
-  font-style: italic;
-  font-size: 0.7rem;
-  user-select: none;
-}
-
-.stats-section {
-  height: 90vh;
-  display: flex;
-  background-color: var(--bg);
-  color: white;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 1.5rem;
-  border-radius: var(--br);
-  overflow-y: overlay;
-  scrollbar-width: 0px;
-}
-
-.stats-section::-webkit-scrollbar {
-  width: 0px;
-}
-
 li {
   list-style: none;
 }
@@ -35,6 +10,25 @@ hr {
   width: 90%;
   border: 1px solid var(--divider);
   border-radius: var(--br)
+}
+
+.stats-section {
+  display: none;
+  background-color: var(--bg);
+  color: white;
+  border-radius: var(--br);
+}
+
+
+.ascii-logo {
+  font-family: 'Roboto Mono', monospace;
+  font-style: italic;
+  font-size: 0.7rem;
+  user-select: none;
+}
+
+.stats-section::-webkit-scrollbar {
+  width: 0px;
 }
 
 .button {
@@ -66,3 +60,19 @@ hr {
   color: black;
   margin-bottom: 1.5rem;
 }
+
+
+@media only screen and (min-width: 820px) {
+  .stats-section {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1.5rem;
+    overflow-y: auto;
+    scrollbar-width: 0px;
+    grid-row: 2;
+  }
+
+}
+
+@media only screen and (min-width: 1300px) {}

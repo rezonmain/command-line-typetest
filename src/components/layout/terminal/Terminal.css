@@ -1,0 +1,12 @@
+.terminal-section {
+  background-color: var(--bg);
+  border-radius: var(--br);
+}
+
+@media only screen and (min-width: 820px) {
+  .terminal-section {
+    grid-row: 2;
+  }
+}
+
+@media only screen and (min-width: 1300px) {}

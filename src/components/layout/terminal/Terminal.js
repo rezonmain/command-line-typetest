@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from '../header/Header';
 import './Terminal.css';
 export default function Terminal() {
 	return (

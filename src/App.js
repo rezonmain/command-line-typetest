@@ -1,6 +1,6 @@
-import './style.css';
-import Stats from './components/layout/Stats';
-import Terminal from './components/layout/Terminal';
+import './App.css';
+import Stats from './components/layout/stats/Stats';
+import Terminal from './components/layout/terminal/Terminal';
 
 function App() {
 	return (
