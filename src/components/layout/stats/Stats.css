@@ -19,16 +19,11 @@ hr {
   border-radius: var(--br);
 }
 
-
 .ascii-logo {
   font-family: 'Roboto Mono', monospace;
   font-style: italic;
   font-size: 0.7rem;
   user-select: none;
-}
-
-.stats-section::-webkit-scrollbar {
-  width: 0px;
 }
 
 .button {
@@ -55,24 +50,32 @@ hr {
   gap: 1.2ch;
 }
 
-.stats-section>small {
+.stats-container>small {
   font-family: 'Roboto Mono', monospace;
   color: black;
-  margin-bottom: 1.5rem;
 }
 
 
 @media only screen and (min-width: 820px) {
   .stats-section {
+    grid-row: 2;
+    display: grid;
+    grid-template-rows: 3.25rem 1fr;
+  }
+
+  .stats-container {
+    padding: 1.5rem 0;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     gap: 1.5rem;
     overflow-y: auto;
     scrollbar-width: 0px;
-    grid-row: 2;
   }
 
+  .stats-container::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 
 @media only screen and (min-width: 1300px) {}
