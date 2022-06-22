@@ -20,7 +20,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: black;
+  background-image: url('../public/img/typingbg.jpg');
+
 }
 
 ul {
@@ -31,7 +32,6 @@ ul {
 @media only screen and (min-width: 820px) {
   body {
     padding: 0 0.5rem;
-    background-image: url('../public/img/typingbg.jpg');
   }
 
   main {

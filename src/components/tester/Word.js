@@ -1,17 +1,17 @@
-export default function Word(props) {
-	const letters = props.text.split('');
+export default function Word({ id, word, currentChar }) {
+	const letters = word.split('');
+
 	const letterElements = letters.map((letter, i) => {
-		let classname = props.letter === i ? 'cursor' : '';
-		classname += ' untyped';
+		let classname = currentChar === i ? 'cursor' : '';
 
 		return (
 			<span key={i} id={i} className={classname}>
-				{letter}
+				{letter === '\n' ? '⏎' : letter}
 			</span>
 		);
 	});
 	return (
-		<span key={props.id} id={props.id}>
+		<span key={id} id={id}>
 			{letterElements}
 		</span>
 	);

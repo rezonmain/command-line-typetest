@@ -6,15 +6,15 @@ export default function Tester({ words, lines, cursor }) {
 		<Word
 			key={i}
 			id={i}
-			text={i === words.length - 1 ? word + '\n' : word + ' '}
-			letter={cursor.word === i ? cursor.letter : false}
+			word={word}
+			currentChar={cursor.word === i ? cursor.char : false}
 		/>
 	));
 
 	return (
 		<>
 			<ul className='commands'>{lines}</ul>
-			<div className='type-test-container'>
+			<div id='typetester' className='type-test-container'>
 				<Prompt />
 				{wordElements}
 			</div>

@@ -21,7 +21,6 @@
 
 .cursor::before {
   display: inline-block;
-  position: absolute;
   transform: translate(-0.2ch, 0.5ch);
   width: 2px;
   height: 1.8ch;

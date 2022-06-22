@@ -10,9 +10,13 @@ export function init(commands) {
 	};
 }
 
-function newWords(commands) {
+export function newWords(commands) {
 	const ran = Math.floor(Math.random() * commands.length);
-	return commands[ran].split(' ');
+	const command = commands[ran].split(' ');
+	const words = command.map((word, i) =>
+		i === command.length - 1 ? word + '\n' : word + ' '
+	);
+	return words;
 }
 
 function newLines() {
@@ -42,7 +46,8 @@ function newCursor(words) {
 	const currentLetter = words[0].split('')[0];
 	return {
 		word: 0,
-		letter: 0,
+		char: 0,
 		currentLetter,
+		mistake: false,
 	};
 }

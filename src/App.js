@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
 	const [state, dispatch] = useReducer(testerReducer, init(commands));
-	useKey([], (e) => handleKey(e, dispatch));
+	useKey([], (e) => handleKey(e, state, dispatch));
 
 	console.log(state);
 

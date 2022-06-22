@@ -1,20 +1,39 @@
 .terminal-section {
+  display: grid;
+  grid-template-rows: 3.25rem 1fr;
   background-color: var(--bg);
   border-radius: var(--br);
 }
 
 .terminal-container {
+  max-height: calc(100vh - 3.25rem);
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   font-family: 'Roboto Mono', monospace;
   font-size: 1rem;
   font-weight: 700;
   color: white;
+  overflow-y: auto;
+  scrollbar-width: 0px;
+}
+
+.terminal-container::-webkit-scrollbar {
+  width: 0px;
 }
 
 @media only screen and (min-width: 820px) {
   .terminal-section {
     grid-row: 2;
   }
+
+  .terminal-container {
+    max-height: calc(97vh - 3.25rem);
+  }
 }
 
-@media only screen and (min-width: 1300px) {}
+@media only screen and (min-width: 1300px) {
+  .terminal-container {
+    max-height: calc(90vh - 3.25rem);
+  }
+}
