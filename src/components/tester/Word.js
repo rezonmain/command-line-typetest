@@ -1,11 +1,8 @@
-export default function Word({ id, word, currentChar }) {
+export default function Word({ id, word }) {
 	const letters = word.split('');
-
 	const letterElements = letters.map((letter, i) => {
-		let classname = currentChar === i ? 'cursor' : '';
-
 		return (
-			<span key={i} id={i} className={classname}>
+			<span key={i} id={i} className={'untyped'}>
 				{letter === '\n' ? '⏎' : letter}
 			</span>
 		);

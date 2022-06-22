@@ -7,6 +7,8 @@ import { init } from './lib/init';
 import { commands } from './data';
 import './App.css';
 
+// TODO: words formatting, stat updating
+
 function App() {
 	const [state, dispatch] = useReducer(testerReducer, init(commands));
 	useKey([], (e) => handleKey(e, state, dispatch));

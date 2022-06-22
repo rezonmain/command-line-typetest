@@ -32,7 +32,15 @@
 }
 
 .untyped {
-  color: rgb(119, 119, 119);
+  color: rgb(124, 124, 124);
+}
+
+.typed {
+  color: white;
+}
+
+.mistake {
+  color: red;
 }
 
 @keyframes fade {

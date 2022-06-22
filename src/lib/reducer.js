@@ -1,15 +1,14 @@
 import Prompt from '../components/tester/Prompt';
 import { commands } from '../data';
 import { newWords } from './init';
+
 export function handleKey({ key }, state, dispatch) {
 	if (allowedKeys.includes(key)) {
-		const currentLetter = state.terminal.cursor.currentLetter;
+		const currentLetter = state.cursor.currentLetter;
 		key = key === 'Enter' ? '\n' : key;
-		if (currentLetter === key) {
-			handleCorrectKey(state, dispatch);
-		} else {
-			handleMistake(state, dispatch);
-		}
+		currentLetter === key
+			? handleCorrectKey(state, dispatch)
+			: handleMistake(state, dispatch);
 	}
 }
 
@@ -20,90 +19,39 @@ function handleCorrectKey(state, dispatch) {
 		dispatch({ type: 'newCommand' });
 	};
 
+	const onNewLetter = () => {
+		dispatch({ type: 'incrementLetter' });
+	};
+
+	const onNewWord = () => {};
+
 	currentLetter === ' '
-		? dispatch({ type: 'incrementWord' })
+		? onNewWord()
 		: currentLetter === '\n'
 		? onNewCommand()
-		: dispatch({ type: 'incrementLetter' });
+		: onNewLetter();
 }
 
 function handleMistake(state, dispatch) {}
 
 export function testerReducer(state, action) {
-	let word, char, currentLetter;
 	switch (action.type) {
 		case 'incrementLetter':
-			word = state.terminal.cursor.word;
-			char = state.terminal.cursor.char + 1;
-			currentLetter = state.terminal.words[word].split('')[char];
-			return {
-				stats: { ...state.stats },
-				terminal: {
-					...state.terminal,
-					cursor: {
-						...state.terminal.cursor,
-						char,
-						currentLetter,
-					},
-				},
-			};
+			return {};
 		case 'incrementWord':
-			char = 0;
-			word = state.terminal.cursor.word + 1;
-			currentLetter = state.terminal.words[word].split('')[char];
-			return {
-				stats: { ...state.stats },
-				terminal: {
-					...state.terminal,
-					cursor: {
-						...state.terminal.cursor,
-						char,
-						word,
-						currentLetter,
-					},
-				},
-			};
-			break;
+			return {};
 		case 'newCommand':
-			const words = newWords(commands);
-			return {
-				stats: { ...state.stats },
-				terminal: {
-					...state.terminal,
-					words,
-					cursor: {
-						word: 0,
-						char: 0,
-						currentLetter: words[0].split('')[0],
-					},
-				},
-			};
+			return {};
 		case 'insertLine':
-			const li = (
-				<li>
-					<Prompt />
-					{state.terminal.words.map((word) => (
-						<span>{word}</span>
-					))}
-				</li>
-			);
-			const lines = state.terminal.lines;
-			lines.push(li);
-			return {
-				...state,
-				terminal: {
-					...state.terminal,
-					lines,
-				},
-			};
-
-			break;
+			return {};
 		case 'setMistake':
 			break;
 		default:
 			break;
 	}
 }
+
+function incrementLetter(state, action) {}
 
 const allowedKeys = [
 	'~',

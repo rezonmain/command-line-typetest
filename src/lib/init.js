@@ -1,12 +1,15 @@
+import Word from '../components/tester/Word';
 export function init(commands) {
 	const words = newWords(commands);
+	const cursor = newCursor(words);
 	return {
 		terminal: {
-			words,
+			wordElements: getWordElements(words, cursor),
 			lines: newLines(),
-			cursor: newCursor(words),
 		},
 		stats: newStats(),
+		cursor,
+		words,
 	};
 }
 
@@ -43,11 +46,18 @@ function newStats() {
 }
 
 function newCursor(words) {
-	const currentLetter = words[0].split('')[0];
 	return {
 		word: 0,
 		char: 0,
-		currentLetter,
 		mistake: false,
+		currentLetter: words[0].split('')[0],
 	};
+}
+
+function getWordElements(words) {
+	const wordElements = words.map((word, i) => {
+		<Word key={i} id={i} word={word} />;
+	});
+
+	return wordElements;
 }
