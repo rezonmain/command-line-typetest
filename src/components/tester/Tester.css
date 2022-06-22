@@ -32,6 +32,10 @@
   animation-iteration-count: infinite;
 }
 
+.untyped {
+  color: rgb(119, 119, 119);
+}
+
 @keyframes fade {
 
   0%,
