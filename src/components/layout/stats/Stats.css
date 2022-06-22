@@ -1,12 +1,4 @@
-li {
-  list-style: none;
-}
-
-ul {
-  margin: auto 0;
-}
-
-hr {
+.stats-container>hr {
   width: 90%;
   border: 1px solid var(--divider);
   border-radius: var(--br)
@@ -17,6 +9,10 @@ hr {
   background-color: var(--bg);
   color: white;
   border-radius: var(--br);
+}
+
+.stats-container>ul {
+  margin: auto 0;
 }
 
 .ascii-logo {
@@ -43,7 +39,7 @@ hr {
 
 .stats {
   margin-bottom: auto;
-  font-size: 1.2rem;
+  font-size: 0.875rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;

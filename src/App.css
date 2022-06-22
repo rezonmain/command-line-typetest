@@ -7,7 +7,7 @@
   --btn-bg: #5D5D5D;
   --btn-txt: #D7D7D7;
   --divider: #3E3E40;
-  --input: #2BBC65;
+  --prompt: #2BBC65;
   --help-svg: #A7A0A0;
   --br: 8px;
 }
@@ -21,6 +21,10 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: black;
+}
+
+ul {
+  list-style: none;
 }
 
 /* Tablet */

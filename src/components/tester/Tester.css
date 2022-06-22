@@ -1,0 +1,45 @@
+.commands {
+  line-height: 3ch;
+}
+
+.type-test-container {
+  line-height: 3ch;
+}
+
+/* The gradient is to multicolor the single element */
+/* .type-test-container::before {
+  content: 'rez@main:~$ ';
+  background: linear-gradient(to right,
+      var(--prompt) 70%,
+      white 69%,
+      blue 80%,
+      white 86%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+} */
+
+.cursor::before {
+  display: inline-block;
+  position: absolute;
+  transform: translate(-0.2ch, 0.5ch);
+  width: 2px;
+  height: 1.8ch;
+  background-color: white;
+  content: '';
+  opacity: 1;
+  animation: fade 900ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fade {
+
+  0%,
+  100% {
+    opacity: 0.1
+  }
+
+  50% {
+    opacity: 1
+  }
+}
