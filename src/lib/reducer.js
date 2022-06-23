@@ -1,11 +1,7 @@
 import { incrementLetter, insertLine, setMistake } from './letterlogic';
-import {
-	incrementFontSize,
-	decrementFontSize,
-	resetFontSize,
-	clearLines,
-	showCursor,
-} from './formatting';
+import { changeFontSize, clearLines, showCursor } from './formatting';
+
+import { incrementScore, incrementMistake } from './stats';
 import allowedKeys from './allowedkeys';
 
 export function testerReducer(state, action) {
@@ -16,18 +12,18 @@ export function testerReducer(state, action) {
 			return insertLine(state);
 		case 'setMistake':
 			return setMistake(state);
-		case 'increment':
-			return incrementFontSize(state);
-		case 'decrement':
-			return decrementFontSize(state);
-		case 'reset':
-			return resetFontSize(state);
+		case 'changeFontSize':
+			return changeFontSize(state, action.payload);
 		case 'clearLines':
 			return clearLines(state);
 		case 'focused':
 			return showCursor(state, action.payload);
 		case 'blurry':
 			return showCursor(state, action.payload);
+		case 'incrementScore':
+			return incrementScore(state);
+		case 'incrementMistake':
+			return incrementMistake(state);
 		default:
 			break;
 	}

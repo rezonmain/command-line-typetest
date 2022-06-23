@@ -1,7 +1,21 @@
 import TestLetter from '../components/tester/TestLetter';
-export function incrementFontSize(state) {
+
+export function changeFontSize(state, type) {
 	let fontSize = parseFloat(state.terminal.fontSize);
-	fontSize += 0.1;
+	switch (type) {
+		case 'increment':
+			fontSize += 0.1;
+			break;
+
+		case 'decrement':
+			fontSize -= 0.1;
+			break;
+		case 'reset':
+			fontSize = 1;
+			break;
+		default:
+			break;
+	}
 	fontSize += 'rem';
 
 	return {
@@ -9,30 +23,6 @@ export function incrementFontSize(state) {
 		terminal: {
 			...state.terminal,
 			fontSize,
-		},
-	};
-}
-
-export function decrementFontSize(state) {
-	let fontSize = parseFloat(state.terminal.fontSize);
-	fontSize -= 0.1;
-	fontSize += 'rem';
-
-	return {
-		...state,
-		terminal: {
-			...state.terminal,
-			fontSize,
-		},
-	};
-}
-
-export function resetFontSize(state) {
-	return {
-		...state,
-		terminal: {
-			...state.terminal,
-			fontSize: '1rem',
 		},
 	};
 }

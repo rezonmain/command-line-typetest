@@ -47,8 +47,8 @@ export default function App() {
 		dispatch({ type: 'clearLines' });
 	}
 
-	function changeFontSize(type) {
-		dispatch({ type });
+	function changeFontSize(payload) {
+		dispatch({ type: 'changeFontSize', payload });
 	}
 
 	return (
@@ -68,6 +68,7 @@ export default function App() {
 						handleKey('Enter', state, dispatch);
 					}}>
 					<input
+						enterkeyhint='enter'
 						type='textarea'
 						autoCapitalize='none'
 						value={inputValue}
