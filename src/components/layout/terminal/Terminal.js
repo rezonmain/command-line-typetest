@@ -3,6 +3,7 @@ import Tester from '../../tester/Tester';
 import Header from '../header/Header';
 import './Terminal.css';
 export default function Terminal({ terminal }) {
+	// Keep input part of terminal on view when it overflows
 	useEffect(() => {
 		document
 			.getElementById('typetester')
@@ -13,7 +14,7 @@ export default function Terminal({ terminal }) {
 			<Header title={'/users/rez'} />
 			<div className='terminal-container'>
 				<Tester
-					wordElements={terminal.testLetterElements}
+					letterElements={terminal.testLetterElements}
 					lines={terminal.lines}
 				/>
 			</div>

@@ -58,7 +58,13 @@ function incrementLetter(state) {
 
 	// Get updated elements
 	const el = testLetters.map((letter, i) => {
-		return <TestLetter key={i} letter={letter.letter} style={letter.style} />;
+		return (
+			<TestLetter
+				key={i}
+				letter={letter.letter}
+				style={char === i ? letter.style + ' cursor' : letter.style}
+			/>
+		);
 	});
 
 	return {

@@ -2,10 +2,6 @@
   line-height: 3ch;
 }
 
-.type-test-container {
-  line-height: 3ch;
-}
-
 /* The gradient is to multicolor the single element */
 /* .type-test-container::before {
   content: 'rez@main:~$ ';
@@ -20,11 +16,8 @@
 } */
 
 .cursor {
-  display: inline-block;
   background-color: white;
-  content: '';
-  opacity: 1;
-  animation: fade 900ms;
+  animation: fade 1500ms;
   animation-iteration-count: infinite;
 }
 
@@ -48,10 +41,12 @@
 
   0%,
   100% {
-    opacity: 0.1
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   50% {
-    opacity: 1
+    color: black;
+    background-color: white;
   }
 }

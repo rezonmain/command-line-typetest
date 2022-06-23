@@ -7,7 +7,13 @@ import { init } from './lib/init';
 import { commands } from './data';
 import './App.css';
 
-// TODO: words formatting, stat updating
+/* TODO: 
+[X] cursor
+[x] words formatting, 
+[ ] stat updating
+[ ] give functionality to stat control panel
+[ ] add fontsize modifier in control panel
+ */
 
 function App() {
 	const [state, dispatch] = useReducer(testerReducer, init(commands));

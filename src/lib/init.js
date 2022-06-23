@@ -19,8 +19,14 @@ export function newLetters(commands) {
 	const letters = command.split('');
 	return letters.map((letter, i) => ({
 		letter,
-		style: 'untyped',
+		style: i === 0 ? 'untyped cursor' : 'untyped',
 	}));
+}
+
+export function getTestLetterElements(letters) {
+	return letters.map((letter, i) => {
+		return <TestLetter key={i} letter={letter.letter} style={letter.style} />;
+	});
 }
 
 function newLines() {
@@ -51,10 +57,4 @@ function newCursor(letters) {
 		mistake: false,
 		currentLetter: letters[0].letter,
 	};
-}
-
-export function getTestLetterElements(letters) {
-	return letters.map((letter, i) => {
-		return <TestLetter key={i} letter={letter.letter} style={letter.style} />;
-	});
 }
