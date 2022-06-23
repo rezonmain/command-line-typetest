@@ -11,13 +11,11 @@ export default function Terminal({ terminal }) {
 	return (
 		<section className='terminal-section'>
 			<Header title={'/users/rez'} />
-			<div className='reversed'>
-				<div className='terminal-container'>
-					<Tester
-						wordElements={terminal.testLetterElements}
-						lines={terminal.lines}
-					/>
-				</div>
+			<div className='terminal-container'>
+				<Tester
+					wordElements={terminal.testLetterElements}
+					lines={terminal.lines}
+				/>
 			</div>
 		</section>
 	);

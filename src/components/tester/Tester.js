@@ -1,6 +1,5 @@
 import Prompt from './Prompt';
 import './Tester.css';
-import Word from './Word';
 export default function Tester({ wordElements, lines }) {
 	return (
 		<>

@@ -1,72 +1,130 @@
 import Prompt from '../components/tester/Prompt';
-import Word from '../components/tester/Word';
+import TestLetter from '../components/tester/TestLetter';
+import { nanoid } from 'nanoid';
+import { getTestLetterElements, newLetters } from './init';
 import { commands } from '../data';
-import { newWords } from './init';
 
 export function handleKey({ key }, state, dispatch) {
 	if (allowedKeys.includes(key)) {
 		const currentLetter = state.cursor.currentLetter;
 		key = key === 'Enter' ? '\n' : key;
 		currentLetter === key
-			? handleCorrectKey(state, dispatch)
-			: handleMistake(state, dispatch);
+			? handleCorrectKey(key, dispatch)
+			: handleMistake(dispatch);
 	}
 }
 
-function handleCorrectKey(state, dispatch) {
-	const currentLetter = state.terminal.cursor.currentLetter;
+function handleCorrectKey(key, dispatch) {
 	const onNewCommand = () => {
 		dispatch({ type: 'insertLine' });
-		dispatch({ type: 'newCommand' });
 	};
 
 	const onNewLetter = () => {
 		dispatch({ type: 'incrementLetter' });
 	};
 
-	const onNewWord = () => {};
-
-	currentLetter === ' '
-		? onNewWord()
-		: currentLetter === '\n'
-		? onNewCommand()
-		: onNewLetter();
+	key === '\n' ? onNewCommand() : onNewLetter();
 }
 
-function handleMistake(state, dispatch) {}
+function handleMistake(dispatch) {
+	dispatch({ type: 'setMistake' });
+}
 
 export function testerReducer(state, action) {
 	switch (action.type) {
 		case 'incrementLetter':
-			return {
-				// style letter accordinly
-				// increment cursor position
-			};
-		case 'incrementWord':
-			return {};
-		case 'newCommand':
-			return {};
+			return incrementLetter(state);
 		case 'insertLine':
-			return {};
+			return insertLine(state);
 		case 'setMistake':
-			break;
+			return setMistake(state);
 		default:
 			break;
 	}
 }
 
 function incrementLetter(state) {
-	const char = state.cursor.char;
-	const cWord = state.cursor.word;
+	let char = state.cursor.char;
 	const mistake = state.cursor.mistake;
-	const wordElements = state.words.map((word, i) => {
-		<Word
-			key={i}
-			id={i}
-			charToStyle={cWord === i ? char : false}
-			mistake={mistake}
-		/>;
+	const style = mistake ? 'mistake' : 'typed';
+
+	// Update TestLetter style
+	const testLetters = state.testLetters;
+	testLetters[char].style = style;
+
+	// Update cursor char && current letter
+	char = state.cursor.char + 1;
+	const currentLetter = state.testLetters[char].letter;
+
+	// Get updated elements
+	const el = testLetters.map((letter, i) => {
+		return <TestLetter key={i} letter={letter.letter} style={letter.style} />;
 	});
+
+	return {
+		...state,
+		terminal: {
+			...state.terminal,
+			testLetterElements: el,
+		},
+		testLetters,
+		cursor: {
+			mistake: false,
+			char,
+			currentLetter,
+		},
+	};
+}
+
+function insertLine(state) {
+	// Get current elements to add to history
+	const newLine = state.terminal.testLetterElements;
+	// Remove the last new line char
+	newLine.pop();
+
+	// Append the prompt
+	newLine.unshift(<Prompt key={nanoid()} />);
+	const lines = state.terminal.lines;
+
+	// Wrap in li and add to lines elements array
+	lines.push(
+		<li className={'faded'} key={lines.length}>
+			{newLine}
+		</li>
+	);
+
+	// Get a new command
+	const testLetters = newLetters(commands);
+
+	// Reset cursor
+	const cursor = {
+		char: 0,
+		mistake: false,
+		currentLetter: testLetters[0].letter,
+	};
+
+	// Get new TestLetter elements
+	const testLetterElements = getTestLetterElements(testLetters);
+
+	return {
+		...state,
+		terminal: {
+			testLetterElements,
+			lines,
+		},
+		cursor,
+		testLetters,
+	};
+}
+
+function setMistake(state) {
+	return {
+		...state,
+		cursor: {
+			...state.cursor,
+			mistake: true,
+		},
+	};
 }
 
 const allowedKeys = [

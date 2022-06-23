@@ -19,11 +19,8 @@
   color: transparent;
 } */
 
-.cursor::before {
+.cursor {
   display: inline-block;
-  transform: translate(-0.2ch, 0.5ch);
-  width: 2px;
-  height: 1.8ch;
   background-color: white;
   content: '';
   opacity: 1;
@@ -40,7 +37,11 @@
 }
 
 .mistake {
-  color: red;
+  color: var(--tb-red);
+}
+
+.faded {
+  filter: brightness(80%)
 }
 
 @keyframes fade {
