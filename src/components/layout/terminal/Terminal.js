@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { isMobile } from 'react-device-detect';
 import Tester from '../../tester/Tester';
 import Header from '../header/Header';
 import './Terminal.css';
+
 export default function Terminal({ terminal }) {
 	// Keep input part of terminal on view when it overflows
 	useEffect(() => {
@@ -10,10 +10,13 @@ export default function Terminal({ terminal }) {
 		tester.scrollIntoView({ behavior: 'smooth' });
 	});
 
+	/*   Focus the textarea when tester container is clicked
+  this brings up the mobile keyboard */
 	function focusInput() {
 		document.getElementById('hidden-input') &&
 			document.getElementById('hidden-input').focus();
 	}
+
 	return (
 		<section className='terminal-section'>
 			<Header title={'/users/rez'} />

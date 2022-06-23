@@ -1,23 +1,22 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useReducer, useState } from 'react';
 import { useKey } from 'react-use';
+import { isMobile } from 'react-device-detect';
 import Stats from './components/layout/stats/Stats';
 import Terminal from './components/layout/terminal/Terminal';
 import { handleKey, testerReducer } from './lib/reducer';
 import { init } from './lib/init';
-import { commands } from './data';
 import './App.css';
-import { isMobile } from 'react-device-detect';
 
 /* TODO: 
 [X] cursor
-[x] words formatting, 
+[x] letter formatting, 
 [ ] stat updating
 [ ] give functionality to stat control panel
 [ ] add fontsize modifier in control panel
  */
 
-function App() {
-	const [state, dispatch] = useReducer(testerReducer, init(commands));
+export default function App() {
+	const [state, dispatch] = useReducer(testerReducer, init());
 	const [inputValue, setInputValue] = useState('');
 
 	// Only triggers on mobile
@@ -27,7 +26,7 @@ function App() {
 			setInputValue('');
 		}
 	}
-	// This only triggers on desktop
+	// Only triggers on desktop
 	useKey([], (e) => handleKey(e.key, state, dispatch));
 	console.log(state);
 
@@ -35,7 +34,7 @@ function App() {
 		<main>
 			<Stats stats={state.stats} />
 			<Terminal terminal={state.terminal} />
-			{/* textarea is used because it changes on return keydown */}
+			{/* textarea is used to hijack inputs from mobile*/}
 			{isMobile && (
 				<input
 					type='textarea'
@@ -48,5 +47,3 @@ function App() {
 		</main>
 	);
 }
-
-export default App;

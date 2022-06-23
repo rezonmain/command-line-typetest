@@ -1,6 +1,7 @@
 import TestLetter from '../components/tester/TestLetter';
+import commands from './data';
 
-export function init(commands) {
+export function init() {
 	const testLetters = newLetters(commands);
 	return {
 		terminal: {
@@ -13,7 +14,7 @@ export function init(commands) {
 	};
 }
 
-export function newLetters(commands) {
+export function newLetters() {
 	const ran = Math.floor(Math.random() * commands.length);
 	const command = commands[ran] + '\n';
 	const letters = command.split('');

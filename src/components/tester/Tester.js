@@ -1,5 +1,6 @@
 import Prompt from './Prompt';
 import './Tester.css';
+
 export default function Tester({ letterElements, lines }) {
 	return (
 		<>

@@ -48,10 +48,6 @@ ul {
     grid-template-columns: 20.625rem 1fr;
     grid-template-rows: 1.5vh 97vh 1.5vh;
   }
-
-  .off-screen {
-    display: none;
-  }
 }
 
 /* desktop */
@@ -65,4 +61,7 @@ ul {
     grid-template-rows: 5vh 90vh 5vh;
   }
 
+  .off-screen {
+    display: none;
+  }
 }
