@@ -12,6 +12,7 @@ import './App.css';
 [x] letter formatting, 
 [ ] stat updating
 [ ] stat dropdown for mobile
+[ ] add actual commands and not lorem ipsum
 [x] give functionality to stat control panel
 [x] add fontsize modifier in control panel
  */
@@ -68,6 +69,7 @@ export default function App() {
 						handleKey('Enter', state, dispatch);
 					}}>
 					<input
+						enterkeyhint='enter'
 						type='textarea'
 						autoCapitalize='none'
 						value={inputValue}
