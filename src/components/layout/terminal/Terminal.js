@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { isMobile } from 'react-device-detect';
 import Tester from '../../tester/Tester';
 import Header from '../header/Header';
 import './Terminal.css';
@@ -10,7 +11,8 @@ export default function Terminal({ terminal }) {
 	});
 
 	function focusInput() {
-		document.getElementById('hidden-input').focus();
+		document.getElementById('hidden-input') &&
+			document.getElementById('hidden-input').focus();
 	}
 	return (
 		<section className='terminal-section'>
