@@ -11,38 +11,70 @@ import './App.css';
 [X] cursor
 [x] letter formatting, 
 [ ] stat updating
-[ ] give functionality to stat control panel
-[ ] add fontsize modifier in control panel
+[ ] stat dropdown for mobile
+[x] give functionality to stat control panel
+[x] add fontsize modifier in control panel
  */
 
 export default function App() {
 	const [state, dispatch] = useReducer(testerReducer, init());
+	const [focus, setFocus] = useState();
 	const [inputValue, setInputValue] = useState('');
 
 	// Only triggers on mobile
 	function handleChange(e) {
 		if (isMobile) {
+			e.preventDefault();
 			handleKey(e.target.value, state, dispatch);
 			setInputValue('');
 		}
 	}
+
 	// Only triggers on desktop
-	useKey([], (e) => handleKey(e.key, state, dispatch));
-	console.log(state);
+	useKey([], (e) => focus && handleKey(e.key, state, dispatch));
+
+	// Show the cursor if terminal is focused
+	function handleFocus(type) {
+		if (!isMobile) {
+			const show = type === 'focused' ? true : false;
+			dispatch({ type, payload: show });
+			// Set focus flag to accept input
+			setFocus(show);
+		}
+	}
+
+	function clearConsole() {
+		dispatch({ type: 'clearLines' });
+	}
+
+	function changeFontSize(type) {
+		dispatch({ type });
+	}
 
 	return (
 		<main>
-			<Stats stats={state.stats} />
-			<Terminal terminal={state.terminal} />
+			<Stats
+				stats={state.stats}
+				fontChange={changeFontSize}
+				clearConsole={clearConsole}
+			/>
+			<Terminal terminal={state.terminal} focus={handleFocus} />
+
 			{/* textarea is used to hijack inputs from mobile*/}
 			{isMobile && (
-				<input
-					type='textarea'
-					autoCapitalize='none'
-					value={inputValue}
-					onChange={(e) => handleChange(e)}
-					id='hidden-input'
-					className='off-screen'></input>
+				<form
+					onSubmit={(e) => {
+						e.preventDefault();
+						handleKey('Enter', state, dispatch);
+					}}>
+					<input
+						type='textarea'
+						autoCapitalize='none'
+						value={inputValue}
+						onChange={(e) => handleChange(e)}
+						id='hidden-input'
+						className='off-screen'></input>
+				</form>
 			)}
 		</main>
 	);

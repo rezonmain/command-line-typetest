@@ -1,0 +1,75 @@
+.stepper-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 4.8125rem;
+  height: 1.3125rem;
+  box-shadow:
+    0px 2px 2px rgba(0, 0, 0, 0.25);
+  --heigth: 0.1rem;
+  --width: 0.8rem;
+}
+
+.stepper-symbol {
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  position: relative;
+}
+
+.stepper-symbol:hover {
+  filter: brightness(85%);
+}
+
+.stepper-minus {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: var(--btn-bg);
+}
+
+.stepper-minus>span {
+  display: block;
+  height: var(--heigth);
+  width: var(--width);
+  border-radius: 10px;
+  background-color: #D7D7D7;
+}
+
+.stepper-divider {
+  position: relative;
+  height: 100%;
+  background-color: var(--btn-bg);
+}
+
+.stepper-divider>span {
+  display: block;
+  height: var(--width);
+  width: var(--heigth);
+  border-radius: 10px;
+  background-color: #747474;
+}
+
+.stepper-plus {
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: var(--btn-bg);
+}
+
+.stepper-plus>#one {
+  display: block;
+  height: var(--width);
+  width: var(--heigth);
+  border-radius: 10px;
+  background-color: #D7D7D7;
+}
+
+.stepper-plus>#two {
+  display: block;
+  height: var(--heigth);
+  width: var(--width);
+  border-radius: 10px;
+  background-color: #D7D7D7;
+}

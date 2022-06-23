@@ -75,6 +75,7 @@ export function insertLine(state) {
 	return {
 		...state,
 		terminal: {
+			...state.terminal,
 			testLetterElements,
 			lines,
 		},

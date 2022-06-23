@@ -1,5 +1,6 @@
 import Header from '../header/Header';
 import './Stats.css';
+import Stepper from './Stepper';
 export default function Stats(props) {
 	return (
 		<section className='stats-section'>
@@ -23,7 +24,17 @@ export default function Stats(props) {
 					</li>
 				</ul>
 				<hr></hr>
-				<button className='button'>Clear console</button>
+				<div className='font-size-stepper'>
+					<span>Font size:</span>
+					<Stepper fontChange={props.fontChange} />
+					<div onClick={() => props.fontChange('reset')} className='button'>
+						Reset
+					</div>
+				</div>
+
+				<div onClick={() => props.clearConsole()} className='button'>
+					Clear console
+				</div>
 				<hr></hr>
 				{/* prettier-ignore */}
 				<pre className='ascii-logo'>

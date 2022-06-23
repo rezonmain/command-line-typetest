@@ -5,6 +5,7 @@ export function init() {
 	const testLetters = newLetters(commands);
 	return {
 		terminal: {
+			fontSize: '1rem',
 			testLetterElements: getTestLetterElements(testLetters),
 			lines: newLines(),
 		},

@@ -21,6 +21,12 @@
   also always show the cursor white-space when wrapping */
   word-break: break-all;
   white-space: pre-wrap;
+
+}
+
+.terminal-container:focus {
+  outline: none;
+  filter: none;
 }
 
 .terminal-container::-webkit-scrollbar {
@@ -34,11 +40,16 @@
 
   .terminal-container {
     max-height: calc(97vh - 3.25rem);
+    transition: all 120ms ease-in-out;
+    filter: brightness(60%)
   }
 }
 
 @media only screen and (min-width: 1300px) {
   .terminal-container {
     max-height: calc(90vh - 3.25rem);
+    /* blur a bit when is not in focus */
+
   }
+
 }
