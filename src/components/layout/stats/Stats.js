@@ -8,19 +8,19 @@ export default function Stats(props) {
 			<div className='stats-container'>
 				<ul className='stats'>
 					<li>
-						Time: <b>{'1hr 30min'}</b>
+						Time: <b>{props.stats.time} min</b>
 					</li>
 					<li>
-						WPM: <b>{'28.3'}</b>
+						Speed: <b>{props.stats.wpm || '0'} wpm</b>
 					</li>
 					<li>
-						Mistakes: <b>{'12'}</b>
+						Mistakes: <b>{props.stats.mistakes}</b>
 					</li>
 					<li>
-						Accuracy: <b>{'80'}</b>
+						Accuracy: <b>{props.stats.accuracy || '0'}%</b>
 					</li>
 					<li>
-						Score: <b>{'234'}</b>
+						Score: <b>{props.stats.score}</b>
 					</li>
 				</ul>
 				<hr></hr>

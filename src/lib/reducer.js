@@ -1,7 +1,7 @@
 import { incrementLetter, insertLine, setMistake } from './letterlogic';
 import { changeFontSize, clearLines, showCursor } from './formatting';
 
-import { incrementScore, incrementMistake } from './stats';
+import { incrementScore, incrementMistakes, incrementEntries } from './stats';
 import allowedKeys from './allowedkeys';
 
 export function testerReducer(state, action) {
@@ -20,17 +20,20 @@ export function testerReducer(state, action) {
 			return showCursor(state, action.payload);
 		case 'blurry':
 			return showCursor(state, action.payload);
+		case 'incrementEntries':
+			return incrementEntries(state);
 		case 'incrementScore':
 			return incrementScore(state);
-		case 'incrementMistake':
-			return incrementMistake(state);
+		case 'incrementMistakes':
+			return incrementMistakes(state);
 		default:
-			break;
+			return { ...state };
 	}
 }
 
 export function handleKey(key, state, dispatch) {
 	if (allowedKeys.includes(key)) {
+		dispatch({ type: 'incrementEntries' });
 		const currentLetter = state.cursor.currentLetter;
 		key = key === 'Enter' ? '\n' : key;
 		currentLetter === key
@@ -41,6 +44,7 @@ export function handleKey(key, state, dispatch) {
 
 function handleCorrectKey(key, dispatch) {
 	const onNewCommand = () => {
+		dispatch({ type: 'setUpdateStats' });
 		dispatch({ type: 'insertLine' });
 	};
 
@@ -48,9 +52,11 @@ function handleCorrectKey(key, dispatch) {
 		dispatch({ type: 'incrementLetter' });
 	};
 
+	dispatch({ type: 'incrementScore' });
 	key === '\n' ? onNewCommand() : onNewLetter();
 }
 
 function handleMistake(dispatch) {
+	dispatch({ type: 'incrementMistakes' });
 	dispatch({ type: 'setMistake' });
 }

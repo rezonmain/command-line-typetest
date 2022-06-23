@@ -50,6 +50,7 @@ function newStats() {
 		mistakes: 0,
 		accuracy: 0,
 		score: 0,
+		entries: 0,
 	};
 }
 
