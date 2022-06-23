@@ -28,6 +28,14 @@ ul {
   list-style: none;
 }
 
+.off-screen {
+  position: absolute;
+  left: -1000px;
+  background-color: transparent;
+  width: 0px;
+  height: 0px;
+}
+
 /* Tablet */
 @media only screen and (min-width: 820px) {
   body {
@@ -39,6 +47,10 @@ ul {
     column-gap: 0.5rem;
     grid-template-columns: 20.625rem 1fr;
     grid-template-rows: 1.5vh 97vh 1.5vh;
+  }
+
+  .off-screen {
+    display: none;
   }
 }
 

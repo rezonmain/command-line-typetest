@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import { getTestLetterElements, newLetters } from './init';
 import { commands } from '../data';
 
-export function handleKey({ key }, state, dispatch) {
+export function handleKey(key, state, dispatch) {
 	if (allowedKeys.includes(key)) {
 		const currentLetter = state.cursor.currentLetter;
 		key = key === 'Enter' ? '\n' : key;

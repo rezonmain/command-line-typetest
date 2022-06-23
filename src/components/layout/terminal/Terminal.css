@@ -16,6 +16,11 @@
   color: white;
   overflow-y: auto;
   scrollbar-width: 0px;
+  /* Break by letter and not by word 
+  (closer to what a real terminal does),
+  also always show the cursor white-space when wrapping */
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .terminal-container::-webkit-scrollbar {
