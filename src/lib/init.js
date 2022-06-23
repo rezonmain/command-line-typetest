@@ -1,25 +1,23 @@
-import Word from '../components/tester/Word';
+import TestLetter from '../components/tester/TestLetter';
 export function init(commands) {
-	const words = newWords(commands);
-	const cursor = newCursor(words);
+	const testLetters = newLetters(commands);
+	const cursor = newCursor(testLetters);
 	return {
 		terminal: {
-			wordElements: getWordElements(words, cursor),
+			testLetterElements: getTestLetterElements(testLetters),
 			lines: newLines(),
 		},
 		stats: newStats(),
 		cursor,
-		words,
+		testLetters,
 	};
 }
 
-export function newWords(commands) {
+export function newLetters(commands) {
 	const ran = Math.floor(Math.random() * commands.length);
-	const command = commands[ran].split(' ');
-	const words = command.map((word, i) =>
-		i === command.length - 1 ? word + '\n' : word + ' '
-	);
-	return words;
+	const command = commands[ran] + '\n';
+	const letters = command.split('');
+	return letters.map((letter) => ({ letter, style: 'untyped' }));
 }
 
 function newLines() {
@@ -45,19 +43,16 @@ function newStats() {
 	};
 }
 
-function newCursor(words) {
+function newCursor(letters) {
 	return {
-		word: 0,
 		char: 0,
 		mistake: false,
-		currentLetter: words[0].split('')[0],
+		currentLetter: letters[0].letter,
 	};
 }
 
-function getWordElements(words) {
-	const wordElements = words.map((word, i) => {
-		<Word key={i} id={i} word={word} />;
+function getTestLetterElements(letters) {
+	return letters.map((letter, i) => {
+		return <TestLetter key={i} letter={letter.letter} style={letter.style} />;
 	});
-
-	return wordElements;
 }

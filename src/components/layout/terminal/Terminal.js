@@ -13,7 +13,10 @@ export default function Terminal({ terminal }) {
 			<Header title={'/users/rez'} />
 			<div className='reversed'>
 				<div className='terminal-container'>
-					<Tester wordElements={terminal.wordElements} lines={terminal.lines} />
+					<Tester
+						wordElements={terminal.testLetterElements}
+						lines={terminal.lines}
+					/>
 				</div>
 			</div>
 		</section>

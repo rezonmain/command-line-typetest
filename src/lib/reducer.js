@@ -1,4 +1,5 @@
 import Prompt from '../components/tester/Prompt';
+import Word from '../components/tester/Word';
 import { commands } from '../data';
 import { newWords } from './init';
 
@@ -37,7 +38,10 @@ function handleMistake(state, dispatch) {}
 export function testerReducer(state, action) {
 	switch (action.type) {
 		case 'incrementLetter':
-			return {};
+			return {
+				// style letter accordinly
+				// increment cursor position
+			};
 		case 'incrementWord':
 			return {};
 		case 'newCommand':
@@ -51,7 +55,19 @@ export function testerReducer(state, action) {
 	}
 }
 
-function incrementLetter(state, action) {}
+function incrementLetter(state) {
+	const char = state.cursor.char;
+	const cWord = state.cursor.word;
+	const mistake = state.cursor.mistake;
+	const wordElements = state.words.map((word, i) => {
+		<Word
+			key={i}
+			id={i}
+			charToStyle={cWord === i ? char : false}
+			mistake={mistake}
+		/>;
+	});
+}
 
 const allowedKeys = [
 	'~',
