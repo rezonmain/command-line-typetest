@@ -3,6 +3,7 @@ import { changeFontSize, clearLines, showCursor } from './formatting';
 
 import { incrementScore, incrementMistakes, incrementEntries } from './stats';
 import allowedKeys from './allowedkeys';
+import { addSeconds, deltaSeconds } from './time';
 
 export function testerReducer(state, action) {
 	switch (action.type) {
@@ -26,6 +27,8 @@ export function testerReducer(state, action) {
 			return incrementScore(state);
 		case 'incrementMistakes':
 			return incrementMistakes(state);
+		case 'addSeconds':
+			return addSeconds(state);
 		default:
 			return { ...state };
 	}
@@ -59,4 +62,8 @@ function handleCorrectKey(key, dispatch) {
 function handleMistake(dispatch) {
 	dispatch({ type: 'incrementMistakes' });
 	dispatch({ type: 'setMistake' });
+}
+
+export function handleInterval(dispatch) {
+	dispatch({ type: 'addSeconds' });
 }

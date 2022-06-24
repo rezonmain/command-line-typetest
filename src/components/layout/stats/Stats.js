@@ -8,10 +8,13 @@ export default function Stats(props) {
 			<div className='stats-container'>
 				<ul className='stats'>
 					<li>
-						Time: <b>{props.stats.time} min</b>
+						Time: <b>{parseInt(props.stats.time / 60)} min</b>
 					</li>
 					<li>
-						Speed: <b>{props.stats.wpm || '0'} wpm</b>
+						Speed:{' '}
+						<b className={props.stats.time < 20 ? 'waiting' : ''}>
+							{props.stats.time >= 20 ? props.stats.wpm + ' wpm' : ''}
+						</b>
 					</li>
 					<li>
 						Mistakes: <b>{props.stats.mistakes}</b>

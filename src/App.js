@@ -1,9 +1,9 @@
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { useKey } from 'react-use';
 import { isMobile } from 'react-device-detect';
 import Stats from './components/layout/stats/Stats';
 import Terminal from './components/layout/terminal/Terminal';
-import { handleKey, testerReducer } from './lib/reducer';
+import { handleInterval, handleKey, testerReducer } from './lib/reducer';
 import { init } from './lib/init';
 import './App.css';
 
@@ -21,6 +21,14 @@ export default function App() {
 	const [state, dispatch] = useReducer(testerReducer, init());
 	const [focus, setFocus] = useState();
 	const [inputValue, setInputValue] = useState('');
+
+	// Set timer for time dependent stats
+	useEffect(() => {
+		const timer = setInterval(() => handleInterval(dispatch), 1000);
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
 
 	// Only triggers on mobile
 	function handleChange(e) {
@@ -52,6 +60,7 @@ export default function App() {
 		dispatch({ type: 'changeFontSize', payload });
 	}
 
+	console.log(state);
 	return (
 		<main>
 			<Stats

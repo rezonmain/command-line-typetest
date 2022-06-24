@@ -30,5 +30,6 @@ export function incrementEntries(state) {
 			...state.stats,
 			entries: state.stats.entries + 1,
 		},
+		lastAt: Date.now(),
 	};
 }

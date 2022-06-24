@@ -12,6 +12,7 @@ export function init() {
 		stats: newStats(),
 		cursor: newCursor(testLetters),
 		testLetters,
+		lastAt: 0,
 	};
 }
 
