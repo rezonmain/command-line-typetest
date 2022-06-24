@@ -11,6 +11,7 @@
   background-color: var(--bg);
   color: white;
   border-radius: var(--br);
+  caret-color: transparent;
 }
 
 .stats-container {

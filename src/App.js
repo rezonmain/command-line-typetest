@@ -1,6 +1,6 @@
-import { useEffect, useReducer, useState, useRef } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { useKey } from 'react-use';
-import { isMobile } from 'react-device-detect';
+import { isDesktop, isMobile } from 'react-device-detect';
 import Stats from './components/layout/stats/Stats';
 import Terminal from './components/layout/terminal/Terminal';
 import { handleInterval, handleKey, testerReducer } from './lib/reducer';
@@ -8,12 +8,14 @@ import { init } from './lib/init';
 import './App.css';
 
 /* TODO: 
-[X] cursor
+[ ] include check to not have repeated commands
+[ ] have a switch to use regular words
+[ ] add a TON more commands
+[ ] add stat tooltips
+[X] cursor (caret)
 [x] letter formatting, 
 [X] stat updating
-[ ] add stat tooltips
 [x] stat dropdown for mobile ~~
-[ ] add actual commands and not lorem ipsum
 [x] give functionality to stat control panel
 [x] add fontsize modifier in control panel
  */
@@ -22,7 +24,6 @@ export default function App() {
 	const [state, dispatch] = useReducer(testerReducer, init());
 	const [focus, setFocus] = useState();
 	const [inputValue, setInputValue] = useState('');
-	const burger = useRef(false);
 
 	// Set timer for time dependent stats
 	useEffect(() => {
@@ -35,21 +36,23 @@ export default function App() {
 	// Only triggers on mobile
 	function handleChange(e) {
 		if (isMobile) {
-			handleKey(e.target.value, state, dispatch);
-			e.preventDefault();
+			const key = e.target.value === '\n' ? 'Enter' : e.target.value;
+			handleKey(key, state, dispatch);
 			setInputValue('');
 		}
 	}
 
 	// Only triggers on desktop
 	useKey([], (e) => {
-		focus && handleKey(e.key, state, dispatch);
-		e.preventDefault();
+		if (isDesktop) {
+			focus && handleKey(e.key, state, dispatch);
+			e.preventDefault();
+		}
 	});
 
 	// Show the cursor if terminal is focused
 	function handleFocus(type) {
-		if (!isMobile) {
+		if (isDesktop) {
 			const show = type === 'focused' ? true : false;
 			dispatch({ type, payload: show });
 			// Set focus flag to accept input
@@ -65,15 +68,6 @@ export default function App() {
 		dispatch({ type: 'changeFontSize', payload });
 	}
 
-	function toggleBurger() {
-		burger.current = !burger.current;
-		const menu = document.getElementById('burger-menu');
-		const classname = burger.current
-			? ' burger-menu-show'
-			: ' burger-menu-hide';
-		menu.className += classname;
-	}
-
 	return (
 		<main>
 			<Stats
@@ -81,28 +75,17 @@ export default function App() {
 				fontChange={changeFontSize}
 				clearConsole={clearConsole}
 			/>
-			<Terminal
-				terminal={state.terminal}
-				focus={handleFocus}
-				toggleBurger={toggleBurger}
-			/>
+			<Terminal terminal={state.terminal} focus={handleFocus} />
 
 			{/* textarea is used to hijack inputs from mobile*/}
 			{isMobile && (
-				<form
-					onSubmit={(e) => {
-						e.preventDefault();
-						handleKey('Enter', state, dispatch);
-					}}>
-					<input
-						enterKeyHint='enter'
-						type='textarea'
-						autoCapitalize='none'
-						value={inputValue}
-						onChange={(e) => handleChange(e)}
-						id='hidden-input'
-						className='off-screen'></input>
-				</form>
+				<textarea
+					id='hidden-input'
+					enterKeyHint='enter'
+					autoCapitalize='none'
+					value={inputValue}
+					onChange={(e) => handleChange(e)}
+					className='off-screen'></textarea>
 			)}
 		</main>
 	);
