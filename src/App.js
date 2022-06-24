@@ -10,7 +10,7 @@ import './App.css';
 /* TODO: 
 [X] cursor
 [x] letter formatting, 
-[ ] stat updating
+[X] stat updating
 [ ] stat dropdown for mobile
 [ ] add actual commands and not lorem ipsum
 [x] give functionality to stat control panel
@@ -60,7 +60,6 @@ export default function App() {
 		dispatch({ type: 'changeFontSize', payload });
 	}
 
-	console.log(state);
 	return (
 		<main>
 			<Stats
