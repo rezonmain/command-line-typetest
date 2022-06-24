@@ -11,7 +11,7 @@ import './App.css';
 [ ] include check to not have repeated commands
 [ ] have a switch to use regular words
 [ ] add a TON more commands
-[ ] add stat tooltips
+[X] add stat tooltips
 [X] cursor (caret)
 [x] letter formatting, 
 [X] stat updating

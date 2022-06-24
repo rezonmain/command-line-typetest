@@ -1,11 +1,17 @@
 # Command line typetest
 
-Hello, this is a react project I'm working on.
+How fast can you type linux commands?
+
+![Sample website image]](/img/sample.png)
 
 ## What does it do?
 
-Have you ever visited sites like [keybr](https://www.keybr.com/) where you try out your typing chops? Well this is basically a similar site but instead of typing random words, you type linux commands, thats it.
+Tests your speed and accuracy typing linux commands. [Try it out](https://rezonmain.github.io/command-line-typetest/)
 
 ## Design files
 
 [Figma](https://www.figma.com/file/PsJOhLtkt6nZguOygFJ0vh/command-typetest?node-id=0%3A1)
+
+### About
+
+This is a react learning project for my portfolio, tell me what you think on [twitter](https://twitter.com/rezonmain)

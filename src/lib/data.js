@@ -1,6 +1,7 @@
 const commands = [
 	'git checkout -b dev',
 	'git commit -m "first commit"',
+	'git merge dev',
 	'sudo apt install steam',
 	'sudo apt update',
 	'rm -rf /*',
@@ -45,6 +46,10 @@ const commands = [
 	'date -d now',
 	'cp -rp *.txt stuff',
 	'mkdir texts | mv *.txt texts',
+	'git reset --hard f290',
+	'npm run deploy',
+	'ssh root@tesla.com',
+	'echo "#!/bin/bash" > script.sh',
 ];
 
 export default commands;

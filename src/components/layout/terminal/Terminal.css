@@ -42,7 +42,7 @@
 
   .terminal-container {
     max-height: calc(97vh - 3.25rem);
-    filter: brightness(60%)
+    filter: brightness(60%);
   }
 }
 

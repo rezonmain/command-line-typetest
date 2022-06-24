@@ -119,8 +119,6 @@
     height: auto;
   }
 
-
-
   .button:hover {
     filter: brightness(85%)
   }

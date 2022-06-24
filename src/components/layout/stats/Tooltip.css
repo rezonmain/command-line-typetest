@@ -1,0 +1,29 @@
+.tooltip {
+  width: 1rem;
+  height: 0.8rem;
+  display: inline-block;
+  margin-left: 1ch;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+[data-tooltip]:after {
+  font-style: italic;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  position: absolute;
+  opacity: 0;
+  padding: 0.3rem;
+  color: black;
+  background-color: var(--tb-yellow);
+  border-radius: var(--br);
+}
+
+[data-tooltip]:hover:after {
+  content: attr(data-tooltip);
+  opacity: 1;
+  z-index: 1;
+}
