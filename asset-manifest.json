@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/command-line-typetest/static/css/main.23fe89e5.css",
-    "main.js": "/command-line-typetest/static/js/main.04431468.js",
+    "main.css": "/command-line-typetest/static/css/main.eae6e89b.css",
+    "main.js": "/command-line-typetest/static/js/main.76882df5.js",
     "static/media/typingbg.jpg": "/command-line-typetest/static/media/typingbg.d3a4bcc874f149ed6e35.jpg",
     "static/media/question.svg": "/command-line-typetest/static/media/question.60c95182c94bbbe7f43f5b7e35570183.svg",
+    "static/media/github.svg": "/command-line-typetest/static/media/github.e33ff5908467975c8297f4c6ff1e581f.svg",
     "index.html": "/command-line-typetest/index.html",
-    "main.23fe89e5.css.map": "/command-line-typetest/static/css/main.23fe89e5.css.map",
-    "main.04431468.js.map": "/command-line-typetest/static/js/main.04431468.js.map"
+    "static/media/twitter.svg": "/command-line-typetest/static/media/twitter.a33f3e2f770ef21fd7315bf5f5237f6a.svg",
+    "main.eae6e89b.css.map": "/command-line-typetest/static/css/main.eae6e89b.css.map",
+    "main.76882df5.js.map": "/command-line-typetest/static/js/main.76882df5.js.map"
   },
   "entrypoints": [
-    "static/css/main.23fe89e5.css",
-    "static/js/main.04431468.js"
+    "static/css/main.eae6e89b.css",
+    "static/js/main.76882df5.js"
   ]
 }
