@@ -12,7 +12,7 @@ import './App.css';
 [x] letter formatting, 
 [X] stat updating
 [ ] add stat tooltips
-[ ] stat dropdown for mobile
+[x] stat dropdown for mobile ~~
 [ ] add actual commands and not lorem ipsum
 [x] give functionality to stat control panel
 [x] add fontsize modifier in control panel

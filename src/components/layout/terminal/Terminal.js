@@ -8,7 +8,7 @@ export default function Terminal({ terminal, focus, toggleBurger }) {
 	useEffect(() => {
 		const tester = document.getElementById('typetester');
 		tester.scrollIntoView({ behavior: 'smooth' });
-	});
+	}, [terminal]);
 
 	useEffect(() => {
 		const terminal = document.getElementById('terminal-container');
