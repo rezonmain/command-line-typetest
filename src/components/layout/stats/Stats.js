@@ -11,6 +11,8 @@ export default function Stats(props) {
 						Time: <b>{parseInt(props.stats.time / 60)} min</b>
 					</li>
 					<li>
+						{/* Dont show wpm until user has typed for at least 20seconds
+            instead show a waiting animation*/}
 						Speed:{' '}
 						<b className={props.stats.time < 20 ? 'waiting' : ''}>
 							{props.stats.time >= 20 ? props.stats.wpm + ' wpm' : ''}

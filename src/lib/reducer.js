@@ -1,9 +1,8 @@
 import { incrementLetter, insertLine, setMistake } from './letterlogic';
 import { changeFontSize, clearLines, showCursor } from './formatting';
-
 import { incrementScore, incrementMistakes, incrementEntries } from './stats';
+import { addSeconds } from './time';
 import allowedKeys from './allowedkeys';
-import { addSeconds, deltaSeconds } from './time';
 
 export function testerReducer(state, action) {
 	switch (action.type) {

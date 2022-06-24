@@ -2,19 +2,6 @@
   line-height: 3ch;
 }
 
-/* The gradient is to multicolor the single element */
-/* .type-test-container::before {
-  content: 'rez@main:~$ ';
-  background: linear-gradient(to right,
-      var(--prompt) 70%,
-      white 69%,
-      blue 80%,
-      white 86%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-} */
-
 .cursor {
   background-color: white;
   animation: fade 1500ms;

@@ -1,6 +1,7 @@
 export function incrementScore(state) {
 	const entries = state.stats.entries;
 	const score = state.stats.score + 1;
+
 	// Calculate accuracy
 	const accuracy = parseInt((score / entries) * 100);
 	return {

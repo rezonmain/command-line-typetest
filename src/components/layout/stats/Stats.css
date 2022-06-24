@@ -64,7 +64,7 @@
 
 .waiting::after {
   display: inline-block;
-  width: 4ch;
+  width: 3ch;
   color: white;
   content: '';
   animation: suspense 3000ms;
