@@ -26,7 +26,7 @@ export default function App() {
 
 	// Set timer for time dependent stats
 	useEffect(() => {
-		const timer = setInterval(() => handleInterval(dispatch), 2000);
+		const timer = setInterval(() => handleInterval(dispatch), 1000);
 		return () => {
 			clearInterval(timer);
 		};
@@ -35,14 +35,17 @@ export default function App() {
 	// Only triggers on mobile
 	function handleChange(e) {
 		if (isMobile) {
-			e.preventDefault();
 			handleKey(e.target.value, state, dispatch);
+			e.preventDefault();
 			setInputValue('');
 		}
 	}
 
 	// Only triggers on desktop
-	useKey([], (e) => focus && handleKey(e.key, state, dispatch));
+	useKey([], (e) => {
+		focus && handleKey(e.key, state, dispatch);
+		e.preventDefault();
+	});
 
 	// Show the cursor if terminal is focused
 	function handleFocus(type) {

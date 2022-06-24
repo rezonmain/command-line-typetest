@@ -1,4 +1,3 @@
-import { isMobile } from 'react-device-detect';
 import Header from '../header/Header';
 import './Stats.css';
 import Stepper from './Stepper';
@@ -9,7 +8,10 @@ export default function Stats(props) {
 			<div id='burger-menu' className='stats-container'>
 				<ul className='stats'>
 					<li>
-						Time: <b>{parseInt(props.stats.time / 60)} min</b>
+						Time:{' '}
+						<b>
+							{parseInt(props.stats.time / 60)}min {props.stats.time % 60}s
+						</b>
 					</li>
 					<li>
 						{/* Dont show wpm until user has typed for at least 20seconds

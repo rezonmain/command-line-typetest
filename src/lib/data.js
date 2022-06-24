@@ -1,6 +1,6 @@
 const commands = [
 	'git checkout -b dev',
-	'git commit -m "first commit" ',
+	'git commit -m "first commit"',
 	'sudo apt install steam',
 	'sudo apt update',
 	'rm -rf /*',

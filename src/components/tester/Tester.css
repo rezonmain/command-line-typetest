@@ -1,5 +1,6 @@
 .commands {
   line-height: 3ch;
+  caret-color: transparent;
 }
 
 .cursor {
