@@ -2,7 +2,7 @@
 
 How fast can you type linux commands?
 
-![Sample website image](img/sample.png)
+![Sample website gif](img/sample.gif)
 
 ## What does it do?
 

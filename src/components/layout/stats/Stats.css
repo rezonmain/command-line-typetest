@@ -75,7 +75,13 @@
   gap: 1.2ch;
 }
 
-.stats-container>small {
+.about-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+small {
   font-family: 'Roboto Mono', monospace;
   color: black;
 }
@@ -87,6 +93,22 @@
   content: '';
   animation: suspense 3000ms;
   animation-iteration-count: infinite;
+}
+
+.icon-links-container {
+  display: flex;
+  flex-direction: row nowrap;
+}
+
+.icon-link {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-link>svg {
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes suspense {

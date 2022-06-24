@@ -3,6 +3,8 @@ import './Stats.css';
 import './Tooltip.css';
 import Stepper from './Stepper';
 import { ReactComponent as ToolTip } from './question.svg';
+import { ReactComponent as Twitter } from './twitter.svg';
+import { ReactComponent as Github } from './github.svg';
 export default function Stats(props) {
 	return (
 		<section className='stats-section'>
@@ -86,7 +88,19 @@ export default function Stats(props) {
    +-+-+-+-+-+-+-+ +-+-+-+-+ +-+-+-+-+`}
 			</pre>
 				<hr></hr>
-				<small> &copy; 2022 made by rezonmain</small>
+				<div className='about-section'>
+					<div className='icon-links-container'>
+						<a href='https://twitter.com/rezonmain' className='icon-link'>
+							<Twitter />
+						</a>
+						<a
+							href='https://github.com/rezonmain/command-line-typetest'
+							className='icon-link'>
+							<Github />
+						</a>
+					</div>
+					<small> &copy; 2022 made by rezonmain</small>
+				</div>
 			</div>
 		</section>
 	);
