@@ -1,4 +1,5 @@
 .terminal-section {
+  margin-top: 1rem;
   display: grid;
   grid-template-rows: 3.25rem 1fr;
   background-color: var(--bg);
@@ -35,6 +36,7 @@
 
 @media only screen and (min-width: 820px) {
   .terminal-section {
+    margin: 0;
     grid-row: 2;
   }
 

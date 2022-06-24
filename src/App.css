@@ -26,9 +26,9 @@ body {
 
 main {
   padding: 1rem;
-  gap: 1rem;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+
 }
 
 ul {
@@ -58,7 +58,6 @@ ul {
 
   main {
     padding: 0;
-    gap: 0;
     display: grid;
     column-gap: 0.5rem;
     grid-template-columns: 20.625rem 1fr;
