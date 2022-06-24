@@ -46,7 +46,7 @@ export default function App() {
 	useKey([], (e) => {
 		if (isDesktop) {
 			focus && handleKey(e.key, state, dispatch);
-			e.preventDefault();
+			focus && e.preventDefault();
 		}
 	});
 

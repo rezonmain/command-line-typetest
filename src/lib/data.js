@@ -17,7 +17,7 @@ const commands = [
 	'dd if=/dev/vda bs=4M conv=sparse',
 	'gcc -g -o out helloworld.c sum.c',
 	'gdb helloworld',
-	'echo "1. buy milk:" > list.txt',
+	'echo "1.Buy milk" > list.txt',
 	'find . -size +10M -type f',
 	'yes | npm init',
 	'man vim',
