@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer, useState, useRef } from 'react';
 import { useKey } from 'react-use';
 import { isMobile } from 'react-device-detect';
 import Stats from './components/layout/stats/Stats';
@@ -22,10 +22,11 @@ export default function App() {
 	const [state, dispatch] = useReducer(testerReducer, init());
 	const [focus, setFocus] = useState();
 	const [inputValue, setInputValue] = useState('');
+	const burger = useRef(false);
 
 	// Set timer for time dependent stats
 	useEffect(() => {
-		const timer = setInterval(() => handleInterval(dispatch), 1000);
+		const timer = setInterval(() => handleInterval(dispatch), 2000);
 		return () => {
 			clearInterval(timer);
 		};
@@ -61,6 +62,15 @@ export default function App() {
 		dispatch({ type: 'changeFontSize', payload });
 	}
 
+	function toggleBurger() {
+		burger.current = !burger.current;
+		const menu = document.getElementById('burger-menu');
+		const classname = burger.current
+			? ' burger-menu-show'
+			: ' burger-menu-hide';
+		menu.className += classname;
+	}
+
 	return (
 		<main>
 			<Stats
@@ -68,7 +78,11 @@ export default function App() {
 				fontChange={changeFontSize}
 				clearConsole={clearConsole}
 			/>
-			<Terminal terminal={state.terminal} focus={handleFocus} />
+			<Terminal
+				terminal={state.terminal}
+				focus={handleFocus}
+				toggleBurger={toggleBurger}
+			/>
 
 			{/* textarea is used to hijack inputs from mobile*/}
 			{isMobile && (
@@ -78,7 +92,7 @@ export default function App() {
 						handleKey('Enter', state, dispatch);
 					}}>
 					<input
-						enterkeyhint='enter'
+						enterKeyHint='enter'
 						type='textarea'
 						autoCapitalize='none'
 						value={inputValue}

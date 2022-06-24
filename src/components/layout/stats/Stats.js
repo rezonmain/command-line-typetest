@@ -1,3 +1,4 @@
+import { isMobile } from 'react-device-detect';
 import Header from '../header/Header';
 import './Stats.css';
 import Stepper from './Stepper';
@@ -5,7 +6,7 @@ export default function Stats(props) {
 	return (
 		<section className='stats-section'>
 			<Header title='Stats' />
-			<div className='stats-container'>
+			<div id='burger-menu' className='stats-container'>
 				<ul className='stats'>
 					<li>
 						Time: <b>{parseInt(props.stats.time / 60)} min</b>
@@ -32,14 +33,14 @@ export default function Stats(props) {
 				<div className='font-size-stepper'>
 					<span>Font size:</span>
 					<Stepper fontChange={props.fontChange} />
-					<div onClick={() => props.fontChange('reset')} className='button'>
+					<button onClick={() => props.fontChange('reset')} className='button'>
 						Reset
-					</div>
+					</button>
 				</div>
 
-				<div onClick={() => props.clearConsole()} className='button'>
+				<button onClick={() => props.clearConsole()} className='button'>
 					Clear console
-				</div>
+				</button>
 				<hr></hr>
 				{/* prettier-ignore */}
 				<pre className='ascii-logo'>

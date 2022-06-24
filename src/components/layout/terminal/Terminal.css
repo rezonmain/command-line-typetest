@@ -6,7 +6,7 @@
 }
 
 .terminal-container {
-  max-height: calc(100vh - 3.25rem);
+  max-height: 30vh;
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -21,6 +21,7 @@
   also always show the cursor white-space when wrapping */
   word-break: break-all;
   white-space: pre-wrap;
+  transition: all 120ms ease-in-out;
 }
 
 .terminal-container:focus {
@@ -39,7 +40,6 @@
 
   .terminal-container {
     max-height: calc(97vh - 3.25rem);
-    transition: all 120ms ease-in-out;
     filter: brightness(60%)
   }
 }

@@ -19,8 +19,9 @@
   position: relative;
 }
 
-.stepper-symbol:hover {
+.stepper-symbol:active {
   filter: brightness(85%);
+
 }
 
 .stepper-minus {
@@ -72,4 +73,11 @@
   width: var(--width);
   border-radius: 10px;
   background-color: #D7D7D7;
+}
+
+
+@media only screen and (min-width: 820px) {
+  .stepper-symbol:hover {
+    filter: brightness(85%);
+  }
 }
