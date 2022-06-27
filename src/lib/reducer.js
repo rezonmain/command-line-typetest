@@ -1,7 +1,11 @@
 import { incrementLetter, insertLine, setMistake } from './letterlogic';
 import { changeFontSize, clearLines, showCursor } from './formatting';
-import { incrementScore, incrementMistakes, incrementEntries } from './stats';
-import { addSeconds } from './time';
+import {
+	incrementScore,
+	incrementMistakes,
+	incrementEntries,
+	addSeconds,
+} from './stats';
 import allowedKeys from './allowedkeys';
 
 export function testerReducer(state, action) {
