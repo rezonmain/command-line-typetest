@@ -1,149 +1,147 @@
-.stats-container>hr {
-  width: 90%;
-  border: 1px solid var(--divider);
-  border-radius: var(--br)
+.stats-container > hr {
+	width: 90%;
+	border: 1px solid var(--divider);
+	border-radius: var(--br);
 }
 
 .stats-section {
-  display: grid;
-  grid-template-rows: 3.25rem 1fr;
-  font-size: 0.875rem;
-  background-color: var(--bg);
-  color: white;
-  border-radius: var(--br);
-  caret-color: transparent;
+	display: grid;
+	grid-template-rows: 3.25rem 1fr;
+	font-size: 1rem;
+	background-color: var(--bg);
+	color: white;
+	border-radius: var(--br);
+	caret-color: transparent;
 }
 
 .stats-container {
-  padding: 1.5rem 0;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 1.5rem;
-  overflow-y: auto;
-  scrollbar-width: 0px;
-  height: 34vh;
+	padding: 1.5rem 0;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	gap: 1.5rem;
+	overflow-y: auto;
+	scrollbar-width: 0px;
+	height: 34vh;
 }
 
 .stats-container::-webkit-scrollbar {
-  width: 0px;
+	width: 0px;
 }
 
-.stats-container>ul {
-  margin: auto 0;
+.stats-container > ul {
+	margin: auto 0;
 }
 
 .ascii-logo {
-  font-family: 'Roboto Mono', monospace;
-  font-style: italic;
-  font-size: 0.7rem;
-  user-select: none;
+	font-family: 'Roboto Mono', monospace;
+	font-style: italic;
+	font-size: 0.7rem;
+	user-select: none;
 }
 
 .font-size-stepper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
 }
 
 .button {
-  user-select: none;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  line-height: 0;
-  background-color: var(--btn-bg);
-  color: var(--btn-txt);
-  border: none;
-  padding: 0.8rem;
-  border-radius: 5px;
-  box-shadow:
-    0px 2px 2px rgba(0, 0, 0, 0.25);
-  transition: all 0.2s ease-in;
+	user-select: none;
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif;
+	line-height: 0;
+	background-color: var(--btn-bg);
+	color: var(--btn-txt);
+	border: none;
+	padding: 0.8rem;
+	border-radius: 5px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+	transition: all 0.2s ease-in;
 }
 
 .button:active {
-  filter: brightness(85%)
+	filter: brightness(85%);
 }
 
 .stats {
-  margin-bottom: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 1.2ch;
+	margin-bottom: auto;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	gap: 1.2ch;
 }
 
 .about-section {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 small {
-  font-family: 'Roboto Mono', monospace;
-  color: black;
+	font-family: 'Roboto Mono', monospace;
+	color: white;
 }
 
 .waiting::after {
-  display: inline-block;
-  width: 3ch;
-  color: white;
-  content: '';
-  animation: suspense 3000ms;
-  animation-iteration-count: infinite;
+	display: inline-block;
+	width: 3ch;
+	color: white;
+	content: '';
+	animation: suspense 3000ms;
+	animation-iteration-count: infinite;
 }
 
 .icon-links-container {
-  display: flex;
-  flex-direction: row nowrap;
+	display: flex;
+	flex-direction: row nowrap;
 }
 
 .icon-link {
-  display: block;
-  width: 2rem;
-  height: 2rem;
+	display: block;
+	width: 2rem;
+	height: 2rem;
+	fill: white;
 }
 
-.icon-link>svg {
-  width: 100%;
-  height: 100%;
+.icon-link > svg {
+	width: 100%;
+	height: 100%;
 }
 
 @keyframes suspense {
+	0%,
+	100% {
+		content: '';
+	}
 
-  0%,
-  100% {
-    content: ''
-  }
+	25% {
+		content: '.';
+	}
 
-  25% {
-    content: '.'
-  }
+	50% {
+		content: '..';
+	}
 
-  50% {
-    content: '..'
-  }
-
-  75% {
-    content: '...'
-  }
+	75% {
+		content: '...';
+	}
 }
-
 
 @media only screen and (min-width: 820px) {
-  .stats-section {
-    grid-row: 2;
-  }
+	.stats-section {
+		grid-row: 2;
+	}
 
-  .stats-container {
-    height: auto;
-  }
+	.stats-container {
+		height: auto;
+	}
 
-  .button:hover {
-    filter: brightness(85%)
-  }
+	.button:hover {
+		filter: brightness(85%);
+	}
 }
 
-@media only screen and (min-width: 1300px) {}
+@media only screen and (min-width: 1300px) {
+}
